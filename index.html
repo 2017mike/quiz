@@ -39,7 +39,7 @@
       }
 
       .spacer {
-        height: 30px;
+        height: 5vh;
       }
 
       .newSpacer {
@@ -58,15 +58,17 @@
         height: 20px;
       }
 
-     
-
-      /* .myUl {
-        padding-top: 20px;
-      } */
-
       .myScoreDiv {
         padding-top: 10px;
-        /* background-color: #FF5714; */
+        font-size: 40px;
+        color: #1BE7FF;
+      }
+      .myBtn {
+          background-color: #6EEB83;
+      }
+
+      .hidden {
+        display: none;
       }
 
 
@@ -76,7 +78,7 @@
 
 
 <body>
-  <div class="row spacer"></div>
+  <div class="container spacer"></div>
   <div class="container myContainer">
 
     <div class="row newSpacer"></div>
@@ -97,7 +99,7 @@
         
 
 
-        <button id="start" type="button" class="btn btn-success">Start</button>
+        <button id="start" type="button" class="btn myBtn">Start</button>
 
         <div class="myScoreDiv flex-row d-flex justify-content-center" id="scoreDiv"></div>
       </div>
@@ -136,10 +138,15 @@
         choices: ["3", "too many to count", "one"],
         answer: ["one"]
       }, 
+       {
+        question: "what is my favorite color of Monster??",
+        choices: ["red", "white", "blue"],
+        answer: ["white"]
+      },
       {
-        question: "what is my income??",
-        choices: ["???", "too high to count", "none of your business!!!"],
-        answer: ["???"]
+        question: "how could my style best be described?",
+        choices: ["emo", "hipster", "goth"],
+        answer: ["goth"]
       }
     ]
 
@@ -172,7 +179,20 @@
         questionDiv.append(questionElem)
       }
 
-    start.addEventListener("click", event => {
+      const renderScore = () => {
+        document.getElementById('scoreDiv').innerHTML = `Score: ${score}`
+      }
+    
+      const renderTime = () => {
+
+      }
+
+
+      
+      start.addEventListener("click", event => {
+      start.classList.add('hidden')
+
+      renderScore()
       renderQuestion()
     })
 
@@ -195,9 +215,7 @@
       }
     })
     
-    const renderScore = () => {
-      document.getElementById('scoreDiv').innerHTML = `Score: ${score}`
-    }
+   
   </script>
 
 
